@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.keep
+out
+bin
+lib
+build
+target
+*.class
+*.bin
+*.lock
+*.iml
