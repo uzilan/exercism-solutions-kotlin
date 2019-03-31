@@ -1,5 +1,4 @@
 import org.junit.Test
-import org.junit.Ignore
 import kotlin.test.assertEquals
 
 class DnaTest {
@@ -12,7 +11,6 @@ class DnaTest {
         assertEquals(expected, dna.nucleotideCounts)
     }
 
-    @Ignore
     @Test
     fun canCountOneNucleotideInSingleCharacterInput() {
         val dna = Dna("G")
@@ -21,7 +19,6 @@ class DnaTest {
         assertEquals(expected, dna.nucleotideCounts)
     }
 
-    @Ignore
     @Test
     fun canCountRepeatedNucleotide() {
         val dna = Dna("GGGGGGG")
@@ -30,7 +27,6 @@ class DnaTest {
         assertEquals(expected, dna.nucleotideCounts)
     }
 
-    @Ignore
     @Test
     fun canCountMultipleNucleotides() {
         val dna = Dna("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
@@ -39,10 +35,8 @@ class DnaTest {
         assertEquals(expected, dna.nucleotideCounts)
     }
 
-    @Ignore
     @Test(expected = IllegalArgumentException::class)
     fun validatesNucleotides() {
         Dna("AGXXACT")
     }
-
 }

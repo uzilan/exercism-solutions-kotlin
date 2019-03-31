@@ -1,4 +1,3 @@
-import org.junit.Ignore
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -11,7 +10,6 @@ class SublistTest {
                 emptyList<String>().relationshipTo(emptyList<String>()))
     }
 
-    //@Ignore
     @Test
     fun testEmptyListIsSublistOfNonEmptyList() {
         assertEquals(
@@ -19,7 +17,6 @@ class SublistTest {
                 emptyList<Int>().relationshipTo(listOf(1, 2, 3)))
     }
 
-    //@Ignore
     @Test
     fun testNonEmptyListIsSuperlistOfEmptyList() {
         assertEquals(
@@ -27,7 +24,6 @@ class SublistTest {
                 listOf('1', '2', '3').relationshipTo(emptyList()))
     }
 
-    //@Ignore
     @Test
     fun testListIsEqualToItself() {
         val anyList = listOf("1", "2", "3")
@@ -37,7 +33,6 @@ class SublistTest {
                 anyList.relationshipTo(anyList))
     }
 
-    //@Ignore
     @Test
     fun testDifferentListsOfTheSameLengthAreUnequal() {
         assertEquals(
@@ -45,7 +40,6 @@ class SublistTest {
                 listOf(1, 2, 3).relationshipTo(listOf(2, 3, 4)))
     }
 
-    //@Ignore
     @Test
     fun testSublistCheckDoesNotAbortAfterFalseStart() {
         assertEquals(
@@ -53,7 +47,6 @@ class SublistTest {
                 listOf('1', '2', '5').relationshipTo(listOf('0', '1', '2', '3', '1', '2', '5', '6')))
     }
 
-    //@Ignore
     @Test
     fun testSublistCheckHandlesExtraneousRepeatsOfFirstEntry() {
         assertEquals(
@@ -61,7 +54,6 @@ class SublistTest {
                 listOf("1", "1", "2").relationshipTo(listOf("0", "1", "1", "1", "2", "1", "2")))
     }
 
-    //@Ignore
     @Test
     fun testSublistAtStart() {
         assertEquals(
@@ -69,7 +61,6 @@ class SublistTest {
                 listOf(0, 1, 2).relationshipTo(listOf(0, 1, 2, 3, 4, 5)))
     }
 
-    //@Ignore
     @Test
     fun testSublistInMiddle() {
         assertEquals(
@@ -77,7 +68,6 @@ class SublistTest {
                 listOf('2', '3', '4').relationshipTo(listOf('0', '1', '2', '3', '4', '5')))
     }
 
-    //@Ignore
     @Test
     fun testSublistAtEnd() {
         assertEquals(
@@ -85,7 +75,6 @@ class SublistTest {
                 listOf("3", "4", "5").relationshipTo(listOf("0", "1", "2", "3", "4", "5")))
     }
 
-    //@Ignore
     @Test
     fun testAtStartOfSuperlist() {
         assertEquals(
@@ -93,7 +82,6 @@ class SublistTest {
                 listOf(0, 1, 2, 3, 4, 5).relationshipTo(listOf(0, 1, 2)))
     }
 
-    //@Ignore
     @Test
     fun testInMiddleOfSuperlist() {
         assertEquals(
@@ -101,7 +89,6 @@ class SublistTest {
                 listOf('0', '1', '2', '3', '4', '5').relationshipTo(listOf('2', '3')))
     }
 
-    //@Ignore
     @Test
     fun testAtEndOfSuperlist() {
         assertEquals(
@@ -109,7 +96,6 @@ class SublistTest {
                 listOf("0", "1", "2", "3", "4", "5").relationshipTo(listOf("3", "4", "5")))
     }
 
-    //@Ignore
     @Test
     fun testFirstListMissingElementFromSecondList() {
         assertEquals(
@@ -117,7 +103,6 @@ class SublistTest {
                 listOf(1, 3).relationshipTo(listOf(1, 2, 3)))
     }
 
-    //@Ignore
     @Test
     fun testSecondListMissingElementFromFirstList() {
         assertEquals(
@@ -125,7 +110,6 @@ class SublistTest {
                 listOf('1', '2', '3').relationshipTo(listOf('1', '3')))
     }
 
-    //@Ignore
     @Test
     fun testThatListOrderingIsAccountedFor() {
         assertEquals(
@@ -133,12 +117,10 @@ class SublistTest {
                 listOf("1", "2", "3").relationshipTo(listOf("3", "2", "1")))
     }
 
-    //@Ignore
     @Test
     fun testThatListsWithSameDigitsButDifferentNumbersAreUnequal() {
         assertEquals(
                 Relationship.UNEQUAL,
                 listOf(1, 0, 1).relationshipTo(listOf(10, 1)))
     }
-
 }

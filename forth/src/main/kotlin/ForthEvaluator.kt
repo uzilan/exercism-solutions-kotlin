@@ -49,7 +49,6 @@ class ForthEvaluator {
         queue.push(queue.pop() + queue.pop())
     }
 
-
     private fun subtract() {
         requireNumberOfValues("Subtraction", 2)
         val subtrahend = queue.pop()

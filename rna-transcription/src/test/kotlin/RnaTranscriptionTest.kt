@@ -1,5 +1,4 @@
 import org.junit.Test
-import org.junit.Ignore
 import kotlin.test.assertEquals
 
 class RnaTranscriptionTest {
@@ -18,28 +17,23 @@ class RnaTranscriptionTest {
         assertEquals("G", transcribeToRna("C"))
     }
 
-    @Ignore
     @Test
     fun guanineComplementIsCytosine() {
         assertEquals("C", transcribeToRna("G"))
     }
 
-    @Ignore
     @Test
     fun thymineComplementIsAdenine() {
         assertEquals("A", transcribeToRna("T"))
     }
 
-    @Ignore
     @Test
     fun adenineComplementIsUracil() {
         assertEquals("U", transcribeToRna("A"))
     }
 
-    @Ignore
     @Test
     fun rnaTranscription() {
         assertEquals("UGCACCAGAAUU", transcribeToRna("ACGTGGTCTTAA"))
     }
-
 }

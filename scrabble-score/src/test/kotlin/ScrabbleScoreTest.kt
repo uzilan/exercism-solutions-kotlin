@@ -28,5 +28,4 @@ class ScrabbleScoreTest(val input: String, val expectedOutput: Int) {
     fun test() {
         assertEquals(expectedOutput, ScrabbleScore.scoreWord(input))
     }
-
 }

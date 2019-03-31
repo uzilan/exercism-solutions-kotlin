@@ -7,5 +7,4 @@ class HelloWorldTest {
     fun helloWorldTest() {
         assertEquals("Hello, World!", hello())
     }
-
 }

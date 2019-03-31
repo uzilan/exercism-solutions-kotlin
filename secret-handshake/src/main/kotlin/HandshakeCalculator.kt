@@ -7,5 +7,5 @@ object HandshakeCalculator {
         if (num and 0b1000 == 0b1000) arr.add(Signal.JUMP)
         if (num and 0b10000 == 0b10000) arr.reverse()
         return arr
-    }   
+    }
 }

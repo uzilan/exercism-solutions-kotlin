@@ -1,5 +1,4 @@
 import org.junit.Test
-import org.junit.Ignore
 import org.junit.experimental.runners.Enclosed
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -30,7 +29,6 @@ class AtbashTest {
         fun test() {
             assertEquals(expectedOutput, Atbash.encode(input))
         }
-
     }
 
     @RunWith(Parameterized::class)
@@ -46,12 +44,9 @@ class AtbashTest {
             )
         }
 
-        @Ignore
         @Test
         fun test() {
             assertEquals(expectedOutput, Atbash.decode(input))
         }
-
     }
-
 }

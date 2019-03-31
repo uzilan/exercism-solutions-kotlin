@@ -1,5 +1,4 @@
 import org.junit.Test
-import org.junit.Ignore
 import kotlin.test.assertEquals
 
 class ETLTest {
@@ -50,5 +49,4 @@ class ETLTest {
 
         assertEquals(expected, ETL.transform(old))
     }
-
 }
