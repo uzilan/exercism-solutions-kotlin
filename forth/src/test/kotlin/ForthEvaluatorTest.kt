@@ -1,3 +1,4 @@
+
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -17,6 +18,7 @@ class ForthEvaluatorTest {
         forthEvaluator = ForthEvaluator()
     }
 
+    
     @Test
     fun testNumbersAreJustPushedOntoTheStack() {
         assertEquals(
@@ -24,6 +26,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 3 4 5")))
     }
 
+    
     @Test
     fun testTwoNumbersCanBeAdded() {
         assertEquals(
@@ -31,6 +34,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 +")))
     }
 
+    
     @Test
     fun testErrorIfAdditionAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -39,6 +43,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("+"))
     }
 
+    
     @Test
     fun testErrorIfAdditionAttemptedWithOneNumberOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -47,6 +52,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("1 +"))
     }
 
+    
     @Test
     fun testTwoNumbersCanBeSubtracted() {
         assertEquals(
@@ -54,6 +60,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("3 4 -")))
     }
 
+    
     @Test
     fun testErrorIfSubtractionAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -62,6 +69,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("-"))
     }
 
+    
     @Test
     fun testErrorIfSubtractionAttemptedWithOneNumberOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -70,6 +78,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("1 -"))
     }
 
+    
     @Test
     fun testTwoNumbersCanBeMultiplied() {
         assertEquals(
@@ -77,6 +86,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("2 4 *")))
     }
 
+    
     @Test
     fun testErrorIfMultiplicationAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -85,6 +95,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("*"))
     }
 
+    
     @Test
     fun testErrorIfMultiplicationAttemptedWithOneNumberOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -93,6 +104,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("1 *"))
     }
 
+    
     @Test
     fun testTwoNumbersCanBeDivided() {
         assertEquals(
@@ -100,6 +112,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("12 3 /")))
     }
 
+    
     @Test
     fun testThatIntegerDivisionIsUsed() {
         assertEquals(
@@ -107,6 +120,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("8 3 /")))
     }
 
+    
     @Test
     fun testErrorIfDividingByZero() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -115,6 +129,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("4 0 /"))
     }
 
+    
     @Test
     fun testErrorIfDivisionAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -123,6 +138,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("/"))
     }
 
+    
     @Test
     fun testErrorIfDivisionAttemptedWithOneNumberOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -131,6 +147,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("1 /"))
     }
 
+    
     @Test
     fun testCombinedAdditionAndSubtraction() {
         assertEquals(
@@ -138,6 +155,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 + 4 -")))
     }
 
+    
     @Test
     fun testCombinedMultiplicationAndDivision() {
         assertEquals(
@@ -145,6 +163,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("2 4 * 3 /")))
     }
 
+    
     @Test
     fun testDupCopiesTheTopValueOnTheStack() {
         assertEquals(
@@ -152,6 +171,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 DUP")))
     }
 
+    
     @Test
     fun testDupParsingIsCaseInsensitive() {
         assertEquals(
@@ -159,6 +179,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 Dup")))
     }
 
+    
     @Test
     fun testErrorIfDuplicatingAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -167,6 +188,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("dup"))
     }
 
+    
     @Test
     fun testDropRemovesTheTopValueOnTheStackIfItIsTheOnlyOne() {
         assertEquals(
@@ -174,6 +196,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 drop")))
     }
 
+    
     @Test
     fun testDropRemovesTheTopValueOnTheStackIfItIsNotTheOnlyOne() {
         assertEquals(
@@ -181,6 +204,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 drop")))
     }
 
+    
     @Test
     fun testErrorIfDroppingAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -189,6 +213,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("drop"))
     }
 
+    
     @Test
     fun testSwapSwapsTheTopTwosValueOnTheStackIfTheyAreTheOnlyOnes() {
         assertEquals(
@@ -196,6 +221,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 swap")))
     }
 
+    
     @Test
     fun testSwapSwapsTheTopTwosValueOnTheStackIfTheyAreNotTheOnlyOnes() {
         assertEquals(
@@ -203,6 +229,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 3 swap")))
     }
 
+    
     @Test
     fun testErrorIfSwappingAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -211,6 +238,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("swap"))
     }
 
+    
     @Test
     fun testErrorIfSwappingAttemptedWithOneNumberOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -219,6 +247,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("1 swap"))
     }
 
+    
     @Test
     fun testOverCopiesTheSecondElementIfThereAreOnlyTwo() {
         assertEquals(
@@ -226,6 +255,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 over")))
     }
 
+    
     @Test
     fun testOverCopiesTheSecondElementIfThereAreMoreThanTwo() {
         assertEquals(
@@ -233,6 +263,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf("1 2 3 over")))
     }
 
+    
     @Test
     fun testErrorIfOveringAttemptedWithNothingOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -241,6 +272,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("over"))
     }
 
+    
     @Test
     fun testErrorIfOveringAttemptedWithOneNumberOnTheStack() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -249,6 +281,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf("1 over"))
     }
 
+    
     @Test
     fun testUserDefinedOperatorsCanConsistOfBuiltInOperators() {
         assertEquals(
@@ -256,6 +289,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf(": dup-twice dup dup ;", "1 dup-twice")))
     }
 
+    
     @Test
     fun testUserDefinedOperatorsAreEvaluatedInTheCorrectOrder() {
         assertEquals(
@@ -263,6 +297,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf(": countup 1 2 3 ;", "countup")))
     }
 
+    
     @Test
     fun testCanRedefineAUserDefinedOperator() {
         assertEquals(
@@ -270,6 +305,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf(": foo dup ;", ": foo dup dup ;", "1 foo")))
     }
 
+    
     @Test
     fun testCanOverrideBuiltInWordOperators() {
         assertEquals(
@@ -277,6 +313,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf(": swap dup ;", "1 swap")))
     }
 
+    
     @Test
     fun testCanOverrideBuiltInArithmeticOperators() {
         assertEquals(
@@ -284,6 +321,7 @@ class ForthEvaluatorTest {
                 forthEvaluator.evaluateProgram(listOf(": + * ;", "3 4 +")))
     }
 
+    
     @Test
     fun testCannotRedefineNumbers() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -292,6 +330,7 @@ class ForthEvaluatorTest {
         forthEvaluator.evaluateProgram(listOf(": 1 2 ;"))
     }
 
+    
     @Test
     fun testErrorIfEvaluatingAnUndefinedOperator() {
         expectedException.expect(IllegalArgumentException::class.java)
@@ -299,4 +338,5 @@ class ForthEvaluatorTest {
 
         forthEvaluator.evaluateProgram(listOf("foo"))
     }
+
 }
