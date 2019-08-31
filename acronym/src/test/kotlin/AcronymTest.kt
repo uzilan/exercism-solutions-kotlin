@@ -1,3 +1,4 @@
+
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -10,6 +11,7 @@ class AcronymTest {
         assertEquals(expected, Acronym.generate(phrase))
     }
 
+    
     @Test
     fun fromOtherTitleCasedPhrases() {
         val phrase = "Ruby on Rails"
@@ -17,6 +19,7 @@ class AcronymTest {
         assertEquals(expected, Acronym.generate(phrase))
     }
 
+    
     @Test
     fun fromPhrasesWithPunctuation() {
         val phrase = "First In, First Out"
@@ -24,13 +27,7 @@ class AcronymTest {
         assertEquals(expected, Acronym.generate(phrase))
     }
 
-    @Test
-    fun fromAllCapsWord() {
-        val phrase = "PHP: Hypertext Preprocessor"
-        val expected = "PHP"
-        assertEquals(expected, Acronym.generate(phrase))
-    }
-
+    
     @Test
     fun fromNonAcronymAllCapsWord() {
         val phrase = "GNU Image Manipulation Program"
@@ -38,10 +35,27 @@ class AcronymTest {
         assertEquals(expected, Acronym.generate(phrase))
     }
 
+    
     @Test
     fun fromPhrasesWithPunctuationAndSentenceCasing() {
         val phrase = "Complementary metal-oxide semiconductor"
         val expected = "CMOS"
+        assertEquals(expected, Acronym.generate(phrase))
+    }
+
+    
+    @Test
+    fun fromVeryLongAbbreviation() {
+        val phrase = "Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"
+        val expected = "ROTFLSHTMDCOALM"
+        assertEquals(expected, Acronym.generate(phrase))
+    }
+
+    
+    @Test
+    fun fromConsecutiveDelimiters() {
+        val phrase = "Something - I made up from thin air"
+        val expected = "SIMUFTA"
         assertEquals(expected, Acronym.generate(phrase))
     }
 }
