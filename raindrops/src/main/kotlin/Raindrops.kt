@@ -1,8 +1,16 @@
 object Raindrops {
-    fun convert(num: Int): String = buildString {
-        if (num.rem(3) == 0) append("Pling")
-        if (num.rem(5) == 0) append("Plang")
-        if (num.rem(7) == 0) append("Plong")
-        if (isEmpty()) append(num)
+    fun convert(input: Int): String {
+        val strings = listOf(3, 5, 7)
+                .filter { input % it == 0 }
+                .map {
+                    when (it) {
+                        3 -> "Pling"
+                        5 -> "Plang"
+                        7 -> "Plong"
+                        else -> ""
+                    }
+                }
+        return if (strings.isEmpty()) input.toString()
+        else strings.joinToString("")
     }
 }
