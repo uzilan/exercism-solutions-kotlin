@@ -26,6 +26,11 @@ data class Clock(var hours: Int, var minutes: Int) {
         adjustTime()
     }
 
+    fun subtract(m: Int) {
+        this.minutes = minutes - m
+        adjustTime()
+    }
+
     private fun adjustTime() {
         if (minutes >= 60) {
             hours += minutes / 60
